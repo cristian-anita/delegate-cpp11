@@ -187,7 +187,7 @@ protected:
 	constexpr DelegateBase(const DelegateBase& other) noexcept;
 	/// @}
 	
-	~DelegateBase() noexcept;	///< \remark Not virtual.
+	~DelegateBase() noexcept = default;	///< \remark Not virtual.
 	
 	DelegateBase& operator=(const DelegateBase& other) noexcept;
 	
@@ -228,7 +228,7 @@ public:
 	constexpr Delegate(const Delegate& other) noexcept;
 	/// @}
 	
-	~Delegate() noexcept;	///< \remark Not virtual.
+	~Delegate() noexcept = default;	///< \remark Not virtual.
 	
 	Delegate& operator=(const Delegate& other) noexcept;
 	
@@ -351,7 +351,7 @@ public:
 	constexpr Delegate(const Delegate& other) noexcept;
 	/// @}
 	
-	~Delegate() noexcept;	///< \remark Not virtual.
+	~Delegate() noexcept = default;	///< \remark Not virtual.
 	
 	Delegate& operator=(const Delegate& other) noexcept;
 	
@@ -501,10 +501,6 @@ inline constexpr DelegateBase<TRetVal, TParams...>::DelegateBase(const DelegateB
 
 
 template <typename TRetVal, typename... TParams>
-inline DelegateBase<TRetVal, TParams...>::~DelegateBase() noexcept = default;
-
-
-template <typename TRetVal, typename... TParams>
 inline DelegateBase<TRetVal, TParams...>& DelegateBase<TRetVal, TParams...>::operator=(
 		const DelegateBase& other) noexcept = default;
 
@@ -535,10 +531,6 @@ inline constexpr Delegate<TRetVal (TParams...)>::Delegate() noexcept = default;
 
 template <typename TRetVal, typename... TParams>
 inline constexpr Delegate<TRetVal (TParams...)>::Delegate(const Delegate& other) noexcept = default;
-
-
-template <typename TRetVal, typename... TParams>
-inline Delegate<TRetVal (TParams...)>::~Delegate() noexcept = default;
 
 
 template <typename TRetVal, typename... TParams>
@@ -665,10 +657,6 @@ inline constexpr Delegate<TRetVal (TParams...) const>::Delegate() noexcept = def
 
 template <typename TRetVal, typename... TParams>
 inline constexpr Delegate<TRetVal (TParams...) const>::Delegate(const Delegate& other) noexcept = default;
-
-
-template <typename TRetVal, typename... TParams>
-inline Delegate<TRetVal (TParams...) const>::~Delegate() noexcept = default;
 
 
 template <typename TRetVal, typename... TParams>
